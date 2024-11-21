@@ -65,6 +65,6 @@ jobs:
           pip install dist/*.whl
       - name: Verify package installation
         run: |
-          python -c "import dedeira_awesomecalculator; print(dedeira_awesomecalculator.__version__)"
+          python -c "import dedeira-awesomecalculator; print(dedeira-awesomecalculator.__version__)"
 
 
