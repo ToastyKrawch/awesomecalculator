@@ -48,4 +48,21 @@ jobs:
         name: awesome-calculator
         path: src/dist    
 
+  install:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+      - name: Download package artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: awesome-calculator
+          path: dist
+      - name: Install package
+        run: |
+          python -m pip install --upgrade pip
+          pip install dist/*.whl
+      - name: Verify package installation
+        run: |
+          python -c "import awesome_calculator; print(awesome_calculator.__version__)"
+
 
